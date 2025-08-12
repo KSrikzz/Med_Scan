@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicine Details</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #f0f0f0;
+            font-family: "Segoe UI", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background-color: #1f1f1f;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px #333;
+            width: 350px;
+            text-align: center;
+        }
+        a {
+            color: #00bcd4;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #76ff03;
+        }
+        .label {
+            font-weight: bold;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>✅ Authorized Medicine</h2>
+        <p><span class="label">Name:</span> {{ name }}</p>
+        <p><span class="label">Manufacturer:</span> {{ manufacturer }}</p>
+        <p><span class="label">Batch No:</span> {{ batch_no }}</p>
+        <p><span class="label">Expiry Date:</span> {{ expiry }}</p>
+    </div>
+</body>
+</html>
