@@ -76,7 +76,8 @@
             <div class="message">{{ message }}</div>
         {% endif %}
         <div class="nav-link">
-            <a href="{{ url_for('view_medicines') }}">View All Medicines</a>
+            <a href="{{ url_for('view_medicines') }}">View All Medicines</a> | 
+            <a href="{{ url_for('export_csv') }}">Export CSV</a>
         </div>
     </div>
 </body>
