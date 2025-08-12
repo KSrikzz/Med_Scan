@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Medicines</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 12px;
+        }
+        th {
+            background-color: #333;
+        }
+        button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .back-btn {
+            background-color: #4CAF50;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            color: white;
+            display: inline-block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Medicine List</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Manufacturer</th>
+            <th>Batch No.</th>
+            <th>Expiry Date</th>
+            <th>QR Code</th>
+            <th>Action</th>
+        </tr>
+        {% for medicine in medicines %}
+        <tr>
+            <td>{{ medicine.name }}</td>
+            <td>{{ medicine.manufacturer }}</td>
+            <td>{{ medicine.batch_no }}</td>
+            <td>{{ medicine.expiry_date }}</td>
+            <td><img src="{{ url_for('static', filename='qr_codes/' + medicine.name + '_' + medicine.manufacturer + '_' + medicine.batch_no + '.png') }}" width="50"></td>
+            <td>
+                <form action="{{ url_for('delete_medicine', name=medicine.name, manufacturer=medicine.manufacturer, batch_no=medicine.batch_no) }}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('admin') }}" class="back-btn">Back to Admin</a>
+</body>
+</html>
